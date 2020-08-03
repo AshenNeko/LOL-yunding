@@ -98,7 +98,7 @@ imgPos['rightClick'] = (450, 172, 1419, 725)  # 捡球坐标 黑框
 
 ##### 程序流程
 
-<img src="https://github.com/AshenNeko/LOL-yunding/blob/master/assets/流程图.png" style="zoom:50%" />
+<div align=center><img src="https://github.com/AshenNeko/LOL-yunding/blob/master/assets/流程图.png" style="zoom:20%" /></div>
 
 ##### 英雄编号
 
