@@ -43,7 +43,7 @@ imgPos = {}
 imgPos['ChooseHero'] = (476, 900, 1493, 1072)  # 英雄购买框 粉框
 imgPos['inGame'] = (263, 875, 468, 1074)  # DF框 绿框
 imgPos['myTurn'] = (399, 82, 1528, 626)  # 整个棋盘 蓝框
-imgPos['myHero'] = (419,308,1458,623) # 半张棋盘 红框
+imgPos['myHero'] = (419, 308, 1458, 623)  # 半张棋盘 红框
 imgPos['start'] = (X_START, Y_START, X_END, Y_END)  # 客户端
 imgPos['rightClick'] = (450, 172, 1419, 725)  # 捡球坐标 黑框
 
@@ -52,8 +52,8 @@ imgPos['rightClick'] = (450, 172, 1419, 725)  # 捡球坐标 黑框
 startTime = time()  # 游戏开始时间
 lastDTime = time()  # 上一次D人的时间
 lastFTime = time()  # 上一次上人口的时间
-lastEquipTime = time() # 上次装备时间
-lastBallTime = time() # 上次捡球时间
+lastEquipTime = time()  # 上次装备时间
+lastBallTime = time()  # 上次捡球时间
 
 
 # --------------------------启动标识----------------------
@@ -161,12 +161,12 @@ def doKey(key_dir, LorR):
 
             if LorR == 'L':
                 leftClick(
-                    imgPos[key_dir['name']][0]+ min_loc[0] + t_width // 2 ,
-                    imgPos[key_dir['name']][1]+min_loc[1] + t_height // 2 )
+                    imgPos[key_dir['name']][0] + min_loc[0] + t_width // 2,
+                    imgPos[key_dir['name']][1] + min_loc[1] + t_height // 2)
             if LorR == 'R':
                 rightClick(
-                    imgPos[key_dir['name']][0]+min_loc[0] + t_width // 2 ,
-                    imgPos[key_dir['name']][1]+min_loc[1] + t_height // 2 )
+                    imgPos[key_dir['name']][0] + min_loc[0] + t_width // 2,
+                    imgPos[key_dir['name']][1] + min_loc[1] + t_height // 2)
             sleep(0.1)
 
 
@@ -187,11 +187,13 @@ def startKey():
                 start_flag = 1
             show_action('执行' + key[:-4])
             leftClick(
-                imgPos[key_dir['name']][0]+ min_loc[0] + t_width // 2 ,
-                imgPos[key_dir['name']][1]+min_loc[1] + t_height // 2 )
+                imgPos[key_dir['name']][0] + min_loc[0] + t_width // 2,
+                imgPos[key_dir['name']][1] + min_loc[1] + t_height // 2)
             sleep(0.1)
 
 # 执行D命令 D命令有两种
+
+
 def D():
     # 两费D的图标
     t_height, t_width = leftClickDelayIcon['d1.png'].shape[:2]
@@ -200,12 +202,12 @@ def D():
     if min_val < leftClickDelayIcon['threshold']:
         show_action('D')
         leftClick(
-            imgPos['inGame'][0]+min_loc[0] +
+            imgPos['inGame'][0] + min_loc[0] +
             t_width //
-            2 ,
-            imgPos['inGame'][1]+min_loc[1] +
+            2,
+            imgPos['inGame'][1] + min_loc[1] +
             t_height //
-            2 )
+            2)
         sleep(0.1)
         return
 
@@ -216,12 +218,12 @@ def D():
     if min_val < leftClickDelayIcon['threshold']:
         show_action('D')
         leftClick(
-            imgPos['inGame'][0]+min_loc[0] +
+            imgPos['inGame'][0] + min_loc[0] +
             t_width //
-            2 ,
-            imgPos['inGame'][1]+min_loc[1] +
+            2,
+            imgPos['inGame'][1] + min_loc[1] +
             t_height //
-            2 )
+            2)
         sleep(0.1)
 
 
@@ -233,21 +235,21 @@ def F():
     if min_val < leftClickDelayIcon['threshold']:
         show_action('F')
         leftClick(
-            imgPos['inGame'][0]+min_loc[0] +
+            imgPos['inGame'][0] + min_loc[0] +
             t_width //
-            2 ,
-            imgPos['inGame'][1]+min_loc[1] +
+            2,
+            imgPos['inGame'][1] + min_loc[1] +
             t_height //
-            2 )
+            2)
         sleep(0.1)
 
 
 # 购买英雄
 def ChooseHero():
     # 开局3分钟保护
-    if (time()-startTime) < 180:
+    if (time() - startTime) < 180:
         if random() > 0.7:
-            leftClick(589,984)  # 购买左一英雄，防止打野打不过
+            leftClick(589, 984)  # 购买左一英雄，防止打野打不过
     doKey(ChooseHeroIcon, 'L')
 
 
@@ -274,7 +276,7 @@ def getHeroPos():
         HeroPos = []
         done_flag = 0
         HeroPos.append((temp_HeroPos[0][0] + imgPos['myHero'][0],
-                     temp_HeroPos[0][1] + imgPos['myHero'][1]))
+                        temp_HeroPos[0][1] + imgPos['myHero'][1]))
 
         # 多目标可能会对同一英雄多次识别，因此把太接近的位置合并
         for singlePos in temp_HeroPos:
@@ -295,6 +297,7 @@ def getHeroPos():
         return HeroPos
 
         # 调试函数，取消注释可绘图，未来希望能在lol顶层绘制动态图框
+        # 记得把上面的return也注释掉
         # draw_img = target.copy()
         # for test in temp_HeroPos:
         #     rect = cv2.rectangle(draw_img, test, (test[0] - 40, test[1] - 70), (0, 0, 255), 1)
@@ -318,10 +321,14 @@ def sellHero(singlePos):
 # 调整英雄站位
 def moveHero(aimPos, hero):
     # 移动前后相近，就不动了
-    if abs(aimPos[0] - heroPosX[hero])<55 and abs(aimPos[1] - heroPosY[hero])<55:
+    if abs(
+            aimPos[0] -
+            heroPosX[hero]) < 55 and abs(
+            aimPos[1] -
+            heroPosY[hero]) < 55:
         pass
     else:
-        drag(aimPos[0], aimPos[1] ,heroPosX[hero], heroPosY[hero] )
+        drag(aimPos[0], aimPos[1], heroPosX[hero], heroPosY[hero])
     show_action(str(hero) + '号英雄就位')
     sleep(random() / 3)
 
@@ -330,8 +337,8 @@ def moveHero(aimPos, hero):
 def moveEquip():
     rand_equip = randint(0, len(equipPosX) - 1)
     # 重点关照的英雄，这里选的是1号 3号 4号 6号
-    hero_index  = [0,2,3,5]
-    choose_hero = hero_index[randint(0, len(hero_index)-1)]
+    hero_index = [0, 2, 3, 5]
+    choose_hero = hero_index[randint(0, len(hero_index) - 1)]
     drag(
         equipPosX[rand_equip],
         equipPosY[rand_equip],
@@ -392,10 +399,10 @@ def getBall():
 
 if __name__ == '__main__':
     print(" ________  _____ ")
-    print("|__  / _ \| ____|")
+    print(r"|__  / _ \| ____|")
     print("  / / | | |  _|  ")
     print(" / /| |_| | |___ ")
-    print("/____\___/|_____|")
+    print(r"/____\___/|_____|")
     print("")
     print("----作者:星†空----")
     print("免费软件，切勿用作商业目的!!!!!!")
@@ -412,13 +419,15 @@ if __name__ == '__main__':
             if start_flag:
                 start_flag = 0
                 startTime = time()
-                show_action('----------------------游戏开始，开始计时---------------------------')
+                show_action(
+                    '----------------------游戏开始，开始计时---------------------------')
 
             ChooseHero()  # 买英雄
 
             # ----------------------己方回合---------------------------
             if judgeMyTurn():
-                show_action('----------------------进入己方回合---------------------------')
+                show_action(
+                    '----------------------进入己方回合---------------------------')
                 PosList = getHeroPos()  # 获得英雄位置
                 # 获得位置失败
                 if not PosList:
@@ -443,7 +452,8 @@ if __name__ == '__main__':
                 sleep(3)
 
             # ----------------------敌对回合---------------------------
-            show_action('----------------------进入对敌回合---------------------------')
+            show_action(
+                '----------------------进入对敌回合---------------------------')
             # 480s后开始装装备，10s一次尝试
             equip_set(time(), 480, 10)
             # 700s后开始D，30s一次尝试

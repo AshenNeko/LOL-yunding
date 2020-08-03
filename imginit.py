@@ -1,5 +1,7 @@
 import os
 from cv2 import imread
+
+
 def ImgInit():
     startIcon = {}
     for filename in os.listdir(r'pic/leftClick/start'):
@@ -14,7 +16,8 @@ def ImgInit():
     ChooseHeroIcon = {}
     for filename in os.listdir(r'pic/leftClick/heros'):
         if filename.endswith('.jpg') or filename.endswith('.png'):
-            ChooseHeroIcon[filename] = (imread('pic/leftClick/heros/' + filename))
+            ChooseHeroIcon[filename] = (
+                imread('pic/leftClick/heros/' + filename))
     ChooseHeroIcon['threshold'] = 0.21
     ChooseHeroIcon['name'] = 'ChooseHero'
 
@@ -28,7 +31,8 @@ def ImgInit():
     leftClickDelayIcon = {}
     for filename in os.listdir(r'pic/leftClickDelay'):
         if filename.endswith('.jpg') or filename.endswith('.png'):
-            leftClickDelayIcon[filename] = (imread('pic/leftClickDelay/' + filename))
+            leftClickDelayIcon[filename] = (
+                imread('pic/leftClickDelay/' + filename))
     leftClickDelayIcon['threshold'] = 0.3
     leftClickDelayIcon['name'] = 'leftClickDelay'
 
