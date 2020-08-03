@@ -1,14 +1,15 @@
 # LOL云顶之弈自动化脚本
 
-版本|日期|作者
---|---|--
-1.0|2020.8.3|灰烬猫猫
+版本|日期
+--|---
+1.0|2020.8.3
 
 ## 说明
 
 原作者：https://github.com/zhouxingkong/LOL-yunding
 
 原作者代码清晰，学会了很多，结合自己理解，写了一版自己的脚本
+fork礼仪不知道有没有问题，有问题请批评指正
 
 目前脚本支持的功能[原作者都基本实现]:
 
@@ -55,9 +56,9 @@
 pyinstaller -F main.py
 ```
 
-## 程序简介
+## 程序介绍
 
-简单介绍下程序逻辑，具体程序分析见https://ashenneko.github.io/
+简单介绍下程序逻辑，具体程序分析见https://ashenneko.github.io/ ，目前还没开始写
 
 ##### 棋盘划分
 
@@ -99,15 +100,15 @@ imgPos['rightClick'] = (450, 172, 1419, 725)  # 捡球坐标 黑框
 
 ![流程图](https://github.com/AshenNeko/LOL-yunding/blob/master/assets/流程图.png)
 
-###### 英雄编号
+##### 英雄编号
 
 ![英雄编号](https://github.com/AshenNeko/LOL-yunding/blob/master/assets/英雄编号.PNG)
 
-###### 英雄站位
+##### 英雄站位
 
 ![英雄站位](https://github.com/AshenNeko/LOL-yunding/blob/master/assets/英雄站位.png)
 
-###### 英雄位置识别
+##### 英雄位置识别
 
 ![英雄位置识别](https://github.com/AshenNeko/LOL-yunding/blob/master/assets/英雄位置识别.PNG)
 
