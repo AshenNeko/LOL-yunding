@@ -39,11 +39,11 @@
 `以管理员权限`运行main.exe，打印出脚本成功运行这句话说明脚本运行成功
 点开下图所示的云顶客户端界面，脚本会自动进行点击操作
 
-![client_ui](E:\S_W\LAB\2020夏\0803\LOL-yunding\assets\client_ui.png)
+![client_ui](https://github.com/AshenNeko/LOL-yunding/blob/master/assets/client_ui.png)
 
 转到该界面后，程序会自动进行寻找对局等一系列流程[昨天连败，心态崩了，游戏删掉了，客户端截图来源于原作者]
 
-大概打了10局，第7~8名4次，第3~6名4次，第2名1次
+大概打了10局，第7-8名4次，第3-6名4次，第2名1次
 
 ## 脚本编译
 
@@ -61,7 +61,7 @@ pyinstaller -F main.py
 
 ##### 棋盘划分
 
-![区域划分](E:\S_W\LAB\2020夏\0803\LOL-yunding\assets\区域划分.png)
+![区域划分](https://github.com/AshenNeko/LOL-yunding/blob/master/assets/区域划分.png)
 
 方框特征如图
 
@@ -97,19 +97,19 @@ imgPos['rightClick'] = (450, 172, 1419, 725)  # 捡球坐标 黑框
 
 ##### 程序流程
 
-![流程图](E:\S_W\LAB\2020夏\0803\LOL-yunding\assets\流程图.png)
+![流程图](https://github.com/AshenNeko/LOL-yunding/blob/master/assets/流程图.png)
 
 ###### 英雄编号
 
-![英雄编号](E:\S_W\LAB\2020夏\0803\LOL-yunding\assets\英雄编号.PNG)
+![英雄编号](https://github.com/AshenNeko/LOL-yunding/blob/master/assets/英雄编号.PNG)
 
 ###### 英雄站位
 
-![英雄站位](E:\S_W\LAB\2020夏\0803\LOL-yunding\assets\英雄站位.png)
+![英雄站位](https://github.com/AshenNeko/LOL-yunding/blob/master/assets/英雄站位.png)
 
 ###### 英雄位置识别
 
-![英雄位置识别](E:\S_W\LAB\2020夏\0803\LOL-yunding\assets\英雄位置识别.PNG)
+![英雄位置识别](https://github.com/AshenNeko/LOL-yunding/blob/master/assets/英雄位置识别.PNG)
 
 ## 功能扩展
 
